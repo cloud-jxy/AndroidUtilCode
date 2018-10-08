@@ -631,7 +631,8 @@ public final class LogUtils {
 
         private Config() {
             if (mDefaultDir != null) return;
-            if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+            if (false   //对机顶盒外部存储有bug，故不用外部存储
+                    && Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
                     && Utils.getApp().getExternalCacheDir() != null)
                 mDefaultDir = Utils.getApp().getExternalCacheDir() + FILE_SEP + "log" + FILE_SEP;
             else {
